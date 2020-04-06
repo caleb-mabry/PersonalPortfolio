@@ -12,18 +12,11 @@
       <div class="about__main">
         <div class="about__info">
           <h1>Full Stack Developer</h1>
-          </div>
-        <div class="about__bubble">
-          <div class="about__technology">
-          <ul class="technology__list">
-            <li>Javascript</li>
-            <li>HTML</li>
-            <li>CSS</li>
-          </ul>
         </div>
-        </div>
-        
-
+      </div>
+      <div class="typing__command">
+        <h3 class="typing__header">[x][o][-]CalebMabry@CalebMabry</h3>
+        <p>{{words}}</p>
       </div>
     </main>
   </div>
@@ -35,7 +28,33 @@ import Logo from '~/components/Logo.vue'
 export default {
   components: {
     Logo
-  }
+  },
+  data() {
+    return {
+      words: "",
+      totalTime: 1
+    }
+  },
+  mounted () {
+    this.hello()
+  },
+  methods: {
+    hello() {
+      let textLine1 = `$ Hello, my name is Caleb Mabry and I am a full stack developer!`
+      // let textLine2 = `$ Well this isn't any fun!`
+      for (let i= 0; i < textLine1.length; i++) {
+        this.delayText(i, textLine1)
+      }
+      
+    },
+    delayText(i, text) {
+      setTimeout(() => {
+        this.words += text[i]
+        this.totalTime = 100 * i
+      }, 100 * i)
+    }
+  },
+
 }
 </script>
 
@@ -124,36 +143,17 @@ box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.2);
   align-items: center;
 
 }
-.about__bubble {
-  box-shadow: 30px 30px 30px 30px rgba(0, 0, 0, 0.2);
-  position: relative;
-  width: 400px;
-  border-radius: 50%;
-  height: 400px;
-  background-color: whitesmoke;
+.typing__command {
+  width: 100%;
+  color: #74e7d2;
+  /* display: flex;
+  flex-wrap: wrap; */
 }
-.about__bubble::after {
-  content: "";
-  position: absolute;
-  height: 400px;
-  top: 0;
-  left: 200px;
-  width: 2000px;
-  z-index: 0;
-  background-color: whitesmoke;
-}
-.about__technology {
-  display: flex;
-}
-.technology__list {
-  top: 50%;
-  width: 150%;
-  justify-content: space-between;
-  position: absolute;
-  display: flex;
-  font-size: 2em;
-  z-index: 1;
-  list-style-type: none;
+.typing__header {
+  width: 100%;
+  color: #74e7d2;
+  background-color: black;
+  padding: 5px;
 }
 @media screen and (max-width: 800px){
   .about__main {

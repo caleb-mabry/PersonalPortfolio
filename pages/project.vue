@@ -28,6 +28,20 @@
         <a href="/AA">Learn More</a>
       </div>
     </div>
+        <div class="card">
+      <div class="card__img-container">
+        <img src="@/static/AutoBot.png" class="card__img" />
+      </div>
+      <div class="card__title">
+        <h1>Autonomous Animal Web Application</h1>
+      </div>
+      <div class="card__text">
+        <p>The Autonomous Animal Web Application is incredibly similar to the Discord Bot expect that it is accessible to anyone who has a web browser. It is currently under development so any feedback would be greatly appreciated!</p>
+      </div>
+      <div class="card__button">
+        <a href="/AAW">Learn More</a>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -37,7 +51,6 @@ export default {}
 
 <style scoped>
 .card__container {
-    height: 100vh;
 background: -moz-linear-gradient(90deg, rgba(52,73,94,1) 0%, rgba(16,135,117,1) 30%, rgba(16,135,117,1) 70%, rgba(52,73,94,1) 100%);
 background: -webkit-linear-gradient(90deg, rgba(52,73,94,1) 0%, rgba(16,135,117,1) 30%, rgba(16,135,117,1) 70%, rgba(52,73,94,1) 100%);
 background: linear-gradient(90deg, rgba(52,73,94,1) 0%, rgba(16,135,117,1) 30%, rgba(16,135,117,1) 70%, rgba(52,73,94,1) 100%);

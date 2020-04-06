@@ -1,13 +1,28 @@
 const express = require('express')
 const consola = require('consola')
 const path    = require("path");
-const { Nuxt, Builder } = require('nuxt')
 const app = express()
+
+// Configure BodyParser
+const bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+const { Nuxt, Builder } = require('nuxt')
 
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
 config.dev = process.env.NODE_ENV !== 'production'
 app.use('/AA', express.static(path.join(__dirname,"../pages/AutonomousAnimal/caleb-mabry.github.io")))
+app.use('/AAW', express.static(path.join(__dirname,'../pages/AAW')))
+app.get('/AAW/data', (req, res) => {
+  res.sendFile(path.join(__dirname,"../static/json/data.json"))
+})
+app.post('/AAW/write', (req, res) => {
+  const name = req.body.userName
+  console.log(name)
+  res.send(name)
+})
+
 async function start () {
   // Init Nuxt.js
   const nuxt = new Nuxt(config)
