@@ -1,7 +1,11 @@
 const express = require('express')
 const consola = require('consola')
 const path    = require("path");
+const cors = require('cors')
 const app = express()
+
+// Enable ALL CORS requests
+app.use(cors())
 
 // Configure BodyParser
 const bodyParser = require("body-parser");
