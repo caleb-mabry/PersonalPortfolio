@@ -135,14 +135,12 @@ box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.2);
   background: -moz-linear-gradient(right, #00C68F, #108776);
   background: linear-gradient(to left, #00C68F, #108776);
 }
-.about__info {
-  height: 400px;
-  width: 30%;
-  font-size: 1.5em;
-  display: flex;
-  align-items: center;
-
-}
+  .about__info {
+    height: auto;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 10px;
+  }
 .typing__command {
   width: 100%;
   color: #74e7d2;
@@ -159,12 +157,7 @@ box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.2);
   .about__main {
     flex-direction: column;
   }
-  .about__info {
-    height: auto;
-    width: 100%;
-    text-align: center;
-    padding-bottom: 10px;
-  }
+
   .about__bubble {
   box-shadow: 30px 30px 30px 30px rgba(0, 0, 0, 0.2);
   position: relative;
