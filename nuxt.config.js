@@ -28,9 +28,9 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
- plugins: [
-  { src: '~plugins/ga.js', mode: 'client' }
-],
+  plugins: [
+    { src: '~plugins/ga.js', mode: 'client' }
+  ],
   /*
   ** Nuxt.js dev-modules
   */
@@ -45,6 +45,7 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
   ],
+
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
@@ -58,7 +59,7 @@ module.exports = {
     /*
     ** You can extend webpack config here
     */
-    extend (config, ctx) {
+    extend(config, ctx) {
     }
   }
 }
