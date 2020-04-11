@@ -44,8 +44,30 @@ router.post('/cu', (req, res) => {
             })
         }
     })
-
-
+})
+router.post('/lu', (req, res) => {
+    const username = req.body.uname
+    const password = req.body.password
+    User.findOne({ "username": username }).exec((err, document) => {
+        if (err) res.send({
+            "Status": -1,
+            "Error": "Unable to find a user with that name"
+        })
+        const salt = document.salt
+        const hashPassword = document.password
+        const computedPassword = crypto.createHash('sha256').update(password + salt).digest('hex')
+        if (computedPassword == hashPassword) {
+            res.send({
+                "Status": 1,
+                "User": username
+            })
+        } else {
+            res.send({
+                "Status": -1,
+                "Error": "Username or password is incorrect"
+            })
+        }
+    })
 })
 router.post('/li', (req, res) => {
     console.log(req.body.name)
