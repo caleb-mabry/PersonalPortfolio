@@ -20,13 +20,35 @@ router.post('/cu', (req, res) => {
         password: password,
         email: email
     })
-    user.save(function (err, data) {
-        if (err) return { "Status": 500, "Error": err }
-        res.send('Successfully wrote' + data)
+
+    // Check to see if a user with that username already exists
+    User.find({ "username": req.body.uname }).exec(function (err, login) {
+        console.log(login.length)
+        if (login.length) {
+            res.send({
+                "Status": -1,
+                "Error": "User " + req.body.uname + " already exists"
+            })
+        } else {
+            user.save(function (err) {
+                if (err) res.send({
+                    "Status": -1,
+                    "Error": err
+                })
+                else {
+                    res.send({
+                        "Status": 1,
+                        "Description": "User created successfully"
+                    })
+                }
+            })
+        }
     })
+
+
 })
 router.post('/li', (req, res) => {
-    console.log(req.body)
+    console.log(req.body.name)
 })
 
 module.exports = router
