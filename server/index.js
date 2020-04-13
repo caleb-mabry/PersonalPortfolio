@@ -19,7 +19,7 @@ const { Nuxt, Builder } = require('nuxt')
 const config = require('../nuxt.config.js')
 config.dev = process.env.NODE_ENV !== 'production'
 app.use('/AA', express.static(path.join(__dirname, "../pages/AutonomousAnimal/caleb-mabry.github.io")))
-app.use('/AAW', express.static(path.join(__dirname, '../pages/AAW')))
+app.use('/AAW', express.static(path.join(__dirname, '../pages/AAW/build')))
 app.use('/AAW/API', aawUser)
 app.get('/AAW/data', (req, res) => {
   res.sendFile(path.join(__dirname, "../static/json/data.json"))
